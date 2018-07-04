@@ -6,7 +6,7 @@
 # Contributors:
 # Codenvy, S.A. - initial API and implementation
 
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 ENV JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 ENV PATH=$JAVA_HOME/bin:$PATH
@@ -23,7 +23,6 @@ RUN apt-get update && \
     ca-certificates \
     curl \
     software-properties-common \
-    python-software-properties \
     bash-completion && \
     mkdir /var/run/sshd && \
     sed 's@session\s*required\s*pam_loginuid.so@session optional pam_loginuid.so@g' -i /etc/pam.d/sshd && \
@@ -37,7 +36,7 @@ RUN apt-get update && \
     sudo apt-get install git subversion -y && \
     apt-get clean && \
     apt-get -y autoremove && \
-    sudo apt-get install openjdk-8-jdk-headless=8u162-b12-0ubuntu0.16.04.2 openjdk-8-source=8u162-b12-0ubuntu0.16.04.2 -y && \
+    sudo apt-get install openjdk-8-jdk-headless=8u171-b11-0ubuntu0.18.04.1 openjdk-8-source=8u171-b11-0ubuntu0.18.04.1 -y && \
     sudo update-ca-certificates -f && \
     sudo sudo /var/lib/dpkg/info/ca-certificates-java.postinst configure && \
     apt-get -y clean && \
