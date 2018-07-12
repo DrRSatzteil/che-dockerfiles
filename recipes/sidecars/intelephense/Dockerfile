@@ -14,6 +14,5 @@ RUN mkdir /home/user/intelephense
 RUN sed -i "s#params.initializationOptions.storagePath#'/home/user/intelephense'#g" /usr/lib/node_modules/intelephense-server/lib/server.js && \
     sed -i "s#clearCache: params.initializationOptions.clearCache#undefined#g" /usr/lib/node_modules/intelephense-server/lib/server.js
 
-# switch to working directory and start the server
 CMD socat TCP4-LISTEN:3333,reuseaddr,fork EXEC:"node /usr/lib/node_modules/intelephense-server --stdio"
 
